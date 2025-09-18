@@ -4,11 +4,14 @@ import pugPlugin from '@macropygia/vite-plugin-pug-static'
 
 export default defineConfig({
   root: 'src',
+  
+  // Додайте base для GitHub Pages
+  base: './', // Це забезпечить відносні шляхи
 
   plugins: [
     pugPlugin({
       buildLocals: {
-        siteName: 'Мій сайт',
+        siteName: 'site name',
         currentYear: new Date().getFullYear(),
       },
       buildOptions: {
@@ -39,19 +42,19 @@ export default defineConfig({
       },
       output: {
         assetFileNames: (assetInfo) => {
-        if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-          return 'assets/styles.css' // 👈 завжди одне ім’я
-        }
-        if (assetInfo.name && /\.(woff2?|ttf|otf|eot)$/.test(assetInfo.name)) {
-          return 'assets/fonts/[name][extname]'
-        }
-        if (assetInfo.name && /\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)) {
-          return 'assets/images/[name][extname]'
-        }
-        return 'assets/[name][extname]'
-      },
-      chunkFileNames: 'assets/js/[name].js',
-      entryFileNames: 'assets/js/[name].js',
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/styles.css' 
+          }
+          if (assetInfo.name && /\.(woff2?|ttf|otf|eot)$/.test(assetInfo.name)) {
+            return 'assets/fonts/[name][extname]'
+          }
+          if (assetInfo.name && /\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)) {
+            return 'assets/images/[name][extname]'
+          }
+          return 'assets/[name][extname]'
+        },
+        chunkFileNames: 'assets/js/[name].js',
+        entryFileNames: 'assets/js/[name].js',
       },
     },
   },
