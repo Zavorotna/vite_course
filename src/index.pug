@@ -1,0 +1,12 @@
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= siteName || 'Головна сторінка'
+  body.bg-blue-50.min-h-screen.py-8.container
+    include components/header
+    .mx-auto.max-w-6xl
+      h1 Hello World
+      p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero culpa error delectus, pariatur possimus atque nam, neque ex, deleniti at iste ut minus corporis rerum natus dignissimos hic voluptate alias!
+    script(type="module", src="/scripts/main.js")
